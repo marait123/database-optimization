@@ -13,7 +13,7 @@ return result;
 end;
 $$ language plpgsql;
 SELECT NOW() + (random() * (NOW() + '100 days' - NOW())) + '20 days';
--- fill the user's table
+-- fill the user's table 101
 delete from users;
 insert into users (
         SELECT generate_series(1, 101) AS id,
@@ -26,7 +26,7 @@ insert into users (
     );
 select *
 from users;
--- fill the courses's table
+-- fill the courses's table 1000
 delete from courses;
 insert into courses (
         SELECT generate_series(1, 1000) AS id,
@@ -35,7 +35,31 @@ insert into courses (
     );
 select *
 from courses;
+-- fill the activities's table 2000
+delete from activities;
+insert into activities (
+        SELECT generate_series(1, 2000) AS id,
+            random_string(10) as title,
+            random_string(20) as attachmentPath,
+            trunc(random() *(1000) + 1) as course_id
+    );
 select *
-from courses
-order by random()
-limit 10;
+from activities;
+-- fill the questions's table 3000
+delete from questions;
+insert into questions (
+        SELECT generate_series(1, 3000) AS id,
+            random_string(30) as description,
+            trunc(random() *(1000) + 1) as course_id
+    );
+select *
+from questions;
+-- fill the answers's table 4000
+delete from answers;
+insert into answers (
+        SELECT generate_series(1, 4000) AS id,
+            random_string(30) as description,
+            trunc(random() *(3000) + 1) as course_id
+    );
+select *
+from answers;

@@ -56,3 +56,13 @@ select *
 from employees;
 SELECT generate_series(3, 10) AS id,
     NOW() - (random() * (NOW() + '50 years' - NOW()));
+-- fill the activities's table
+delete from activities;
+insert into activities (
+        SELECT generate_series(1, 2000) AS id,
+            random_string(10) as title,
+            random_string(20) as attachmentPath,
+            trunc(random() *(1001)) as course_id
+    );
+select *
+from activities;
