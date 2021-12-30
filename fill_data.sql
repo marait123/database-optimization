@@ -22,7 +22,7 @@ insert into users (
             random_string(10) as firstName,
             random_string(10) as lastName,
             NOW() - (random() * (NOW() + '50 years' - NOW())) as birthdate,
-            random_string(10) as type
+            (array ['Instructor', 'Student', 'Admin']) [floor(random() * 3 + 1)] as type
     );
 select *
 from users;
@@ -35,3 +35,7 @@ insert into courses (
     );
 select *
 from courses;
+select *
+from courses
+order by random()
+limit 10;
