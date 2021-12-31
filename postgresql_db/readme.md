@@ -10,3 +10,24 @@
 
 - run the schama.sql file by opening it into pgAdmin after select the <b>lms_db</b> database (this will create the er diagram)
 - run the fill_data.sql file by opening it into pgAdmin after select the <b>lms_db</b> database (this will fill the tables with data)
+
+# system specification
+<table>
+
+<tr>
+    <th>OS</th>
+    <td>Windows 10</td>
+</tr>
+<tr>
+    <th>CPU</th>
+    <td>Intel core i7-7500U 2.7 GHz - 2.9 GHz</td>
+</tr>
+<tr>
+    <th>Ram</th>
+    <td>12GB DDR4</td>
+</tr>
+<tr>
+    <th>Disk type</th>
+    <td>HDD 931GB</td>
+</tr>
+</table>
