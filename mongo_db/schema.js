@@ -19,6 +19,7 @@ db.createCollection("users", {
         },
         lastName: {
           bsonType: "string",
+          enum: ['Instructor', 'Student', 'Admin'],
           description: "must be a string",
           maxLength: 100,
         },
