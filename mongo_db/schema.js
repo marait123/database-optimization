@@ -42,10 +42,23 @@ db.createCollection("users", {
           bsonType: "date",
           description: "must be a date",
         },
+        courses: {
+          bsonType: "array",
+          uniqueItems: true,
+          items: {
+            bsonType: "objectId",
+            description: "must be object Id's"
+          }
+        }
       },
     },
   },
 });
+
+// printjson(db.users.insertOne({
+//   firstName: "sdkjl",
+//   courses: [ObjectId("61d0474bd7e7417d911162fb")]
+// }))
 
 
 db.createCollection("courses", {
@@ -66,6 +79,30 @@ db.createCollection("courses", {
         user_id: {
           bsonType: "objectId"
         },
+        activities: {
+          bsonType: "array",
+          uniqueItems: true,
+          items: {
+            bsonType: "objectId",
+            description: "must be object Id's"
+          }
+        },
+        students: {
+          bsonType: "array",
+          uniqueItems: true,
+          items: {
+            bsonType: "objectId",
+            description: "must be object Id's"
+          }
+        },
+        questions: {
+          bsonType: "array",
+          uniqueItems: true,
+          items: {
+            bsonType: "objectId",
+            description: "must be object Id's"
+          }
+        }
       },
     },
   },
@@ -105,7 +142,7 @@ db.createCollection("questions", {
     $jsonSchema: {
       bsonType:"object",
       additionalProperties: false,
-      required: ['course_id'],
+      required: ['course_id', 'author_id'],
       properties: {
         _id: {
           bsonType: "objectId"
@@ -116,6 +153,9 @@ db.createCollection("questions", {
           maxLength: 65535
         },
         course_id: {
+          bsonType: "objectId"
+        },
+        author_id: {
           bsonType: "objectId"
         }
       }
@@ -128,7 +168,7 @@ db.createCollection("answers", {
     $jsonSchema: {
       bsonType:"object",
       additionalProperties: false,
-      required: ['question_id'],
+      required: ['question_id', 'author_id'],
       properties: {
         _id: {
           bsonType: "objectId"
@@ -139,6 +179,9 @@ db.createCollection("answers", {
           maxLength: 65535
         },
         question_id: {
+          bsonType: "objectId"
+        },
+        author_id: {
           bsonType: "objectId"
         }
       }
