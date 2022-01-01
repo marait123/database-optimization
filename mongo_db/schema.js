@@ -19,12 +19,11 @@ db.createCollection("users", {
         },
         lastName: {
           bsonType: "string",
-          enum: ['Instructor', 'Student', 'Admin'],
           description: "must be a string",
           maxLength: 100,
         },
         type: {
-          bsonType: "string",
+          enum: ['Instructor', 'Student', 'Admin'],
           description: "must be a string",
           maxLength: 100,
         },
@@ -55,11 +54,6 @@ db.createCollection("users", {
   },
 });
 
-// printjson(db.users.insertOne({
-//   firstName: "sdkjl",
-//   courses: [ObjectId("61d0474bd7e7417d911162fb")]
-// }))
-
 
 db.createCollection("courses", {
   validator: {
@@ -73,8 +67,9 @@ db.createCollection("courses", {
         },
         code: {
           bsonType: "string",
-          unique: true,
+          // unique: true,
           description: "Each course must have a code",
+          maxLength: 10
         },
         user_id: {
           bsonType: "objectId"
