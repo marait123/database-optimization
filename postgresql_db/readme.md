@@ -1,8 +1,8 @@
 # folder structure
-
+- reports -> this contains both a csv and .jpg files that show the report for every table
 - schema.sql  --> a file used to create the schema of the database
 - fill_data.sql --> a file used to fill the database tables with data
-
+- report_generation.sql -> file used to generate the reports for every table 
 # er diagram
 ![er diagram](../images/er.jpg)
 # steps to generate the database
