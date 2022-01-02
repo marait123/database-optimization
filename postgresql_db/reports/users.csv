@@ -1,0 +1,12 @@
+"metric","bytes","bytes_pretty","bytes_per_row"
+"core_relation_size",1712128,"1672 kB",85
+"visibility_map",0,"0 bytes",0
+"free_space_map",24576,"24 kB",1
+"table_size_incl_toast",1744896,"1704 kB",87
+"indexes_size",466944,"456 kB",23
+"total_size_incl_toast_and_indexes",2211840,"2160 kB",110
+"live_rows_in_text_representation",1235680,"1207 kB",61
+"------------------------------",NULL,NULL,NULL
+"row_count",20000,NULL,NULL
+"live_tuples",20000,NULL,NULL
+"dead_tuples",0,NULL,NULL
