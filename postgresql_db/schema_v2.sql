@@ -8,6 +8,16 @@ create table users(
     birthdate date,
     type VARCHAR(100)
 );
+DROP TABLE IF EXISTS admins CASCADE;
+create table admins(
+    id serial primary key,
+    password VARCHAR(100),
+    email VARCHAR(100),
+    firstName VARCHAR(100),
+    lastName VARCHAR(100),
+    birthdate date
+);
+-- 
 -- 
 DROP TABLE IF EXISTS courses CASCADE;
 create TABLE courses(
