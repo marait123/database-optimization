@@ -25,3 +25,11 @@ explain analyse
 select *
 from activities
 where title = 'jnSbBwI';
+-- 
+select *,
+    SUBSTRING(cast(birthdate as varchar), 1, 4)
+from users
+where type = 'Admin'
+    and birthdate = '2010-01-01';
+--- increasing the index storage (badd)
+create index users_id_firstname_idx on users(id) include(firstname);
