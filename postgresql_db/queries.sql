@@ -17,11 +17,19 @@ where title = 'jnSbBwI';
 -- query
 ---------------- query 3
 --- split the users table to 2 tables to be able to make queries faster
-select *,
-    SUBSTRING(cast(birthdate as varchar), 1, 4)
+-- this runs of v1 database
+explain analyse
+select *
 from users
 where type = 'Admin'
-    and birthdate = '2010-01-01';
+    and birthdate > '2010-01-01'
+    and birthdate < '2015-01-01';
+-- this runs on v2 database
+explain analyse
+select *
+from admins
+where birthdate > '2010-01-01'
+    and birthdate < '2015-01-01';
 ---------------- query 4
 --- description
 -- adding complex index on users
