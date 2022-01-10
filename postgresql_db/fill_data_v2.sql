@@ -22,10 +22,22 @@ insert into users (
             random_string(10) as firstName,
             random_string(10) as lastName,
             NOW() - (random() * (NOW() + '50 years' - NOW())) as birthdate,
-            (array ['Instructor', 'Student', 'Admin']) [floor(random() * 3 + 1)] as type
+            (array ['Instructor', 'Student']) [floor(random() * 3 + 1)] as type
     );
 select *
 from users;
+-- fill the admins's table 5000
+delete from admins;
+insert into admins (
+        SELECT generate_series(1, 5000) AS id,
+            random_string(10) as password,
+            CONCAT (random_string(10), '@yahoo.com') as email,
+            random_string(10) as firstName,
+            random_string(10) as lastName,
+            NOW() - (random() * (NOW() + '50 years' - NOW())) as birthdate
+    );
+select *
+from admins;
 -- fill the courses's table 100000
 delete from courses;
 insert into courses (
@@ -39,9 +51,8 @@ from courses;
 delete from enrolled_courses;
 insert into enrolled_courses (
         SELECT generate_series(1, 100000) AS id,
-	        trunc(random() *(20000) + 1) as user_id,
+            trunc(random() *(20000) + 1) as user_id,
             trunc(random() *(100000) + 1) as course_id
-
     );
 select *
 from enrolled_courses;
