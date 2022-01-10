@@ -16,7 +16,7 @@ where title = 'jnSbBwI';
 -- optimzation
 -- query
 ---------------- query 3
---- split the users table to 3 tables to be able to make queries faster
+--- split the users table to 2 tables to be able to make queries faster
 select *,
     SUBSTRING(cast(birthdate as varchar), 1, 4)
 from users
@@ -32,7 +32,7 @@ create index users_type_date on users(type, birthdate);
 explain analyse
 select *
 from users
-where type = 'Admin'
+where type = 'Learner'
     and birthdate = '2010-01-01';
 ---------------- query 5
 --- description
@@ -40,5 +40,10 @@ where type = 'Admin'
 -- change block size , use stored procedures
 -- check link below to know how
 -- https://blog.crunchydata.com/blog/optimize-postgresql-server-performance
+--- optimzation
+--- query
+---------------- query 6
+--- description
+-- use views to make queries faster through caching
 --- optimzation
 --- query
