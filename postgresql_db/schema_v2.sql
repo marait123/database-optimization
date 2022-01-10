@@ -64,3 +64,6 @@ create TABLE answers(
     FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+-- indices area
+create index activities_title on activities(title);
+create index users_type_date on users(type, birthdate);
